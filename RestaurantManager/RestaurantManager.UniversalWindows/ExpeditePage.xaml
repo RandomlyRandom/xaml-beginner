@@ -7,7 +7,24 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="Black" Padding="10">
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="35" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+    </Page.Resources>
+
+    <Page.TopAppBar>
+        <AppBar>
+            <AppBarButton Icon="Home" Label="Home" Click="AppBarButton_Click" />
+        </AppBar>
+    </Page.TopAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
         <Grid.RowDefinitions>
             <RowDefinition Height=".9*" />
             <RowDefinition Height=".1*" />
@@ -17,7 +34,11 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <!--These textBocks will eventually be replaced with buttons-->
-        <TextBlock FontSize="35" Foreground="White" Grid.Row="1" Grid.ColumnSpan="1" TextAlignment="Center" VerticalAlignment="Center">**Clear All Orders**</TextBlock>
+        <GridView Grid.Row="0">
+        </GridView>
+
+        <Button Content="Clear All Orders" Click="Button_Click" Grid.Row="1" Grid.ColumnSpan="1" />
+
     </Grid>
+
 </Page>
