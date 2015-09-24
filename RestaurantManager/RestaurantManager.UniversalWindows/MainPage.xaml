@@ -7,16 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Page.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="35" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-        </Style>
-    </Page.Resources>
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="40*" />
@@ -29,8 +19,8 @@
             <ColumnDefinition Width ="50*" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock FontSize="40" Foreground="White" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10">Restaurant Manager</TextBlock>
-        <TextBlock FontSize="20" Foreground="White" Grid.Row="1" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10">Internal Test Version</TextBlock>
+        <TextBlock Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="0,0,0,10">Restaurant Manager</TextBlock>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="0,0,0,10">Internal Test Version</TextBlock>
 
         <Button Content="Submit Orders" Grid.Row="2" Grid.Column="0" Click="Button_Click" />
         <Button Content="Go To Orders View" Grid.Row="2" Grid.Column="1" Click="Button_Click_1" />

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using System.Windows;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -27,14 +29,15 @@ namespace RestaurantManager.UniversalWindows
             this.InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddToOrder(object sender, RoutedEventArgs e)
         {
-
+            //selected item is added to list but the listview isn't being updated after the item is added.
+            Lists.CurrentlySelectedMenuItems.Add(Menu.SelectedItem.ToString());
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void SubmitOrder(object sender, RoutedEventArgs e)
         {
-
+            //can't figure this out
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)

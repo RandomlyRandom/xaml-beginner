@@ -5,18 +5,13 @@
     xmlns:local="using:RestaurantManager.UniversalWindows"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dm="using:RestaurantManager.Models"
     mc:Ignorable="d">
 
-    <Page.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="35" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-        </Style>
-    </Page.Resources>
-
+    <Page.DataContext>
+        <dm:DataManager x:Name="Lists" />
+    </Page.DataContext>
+    
     <Page.TopAppBar>
         <AppBar>
             <AppBarButton Icon="Home" Label="Home" Click="AppBarButton_Click" />
@@ -39,14 +34,14 @@
             <ColumnDefinition Width =".25*" />
         </Grid.ColumnDefinitions>
 
-        <ListView Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Margin="10,10,10,10"/>
-        <ListView Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Margin="10,10,10,10"/>
+        <ListView x:Name="Menu" ItemsSource="{Binding MenuItems, Mode=TwoWay}" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Margin="10,10,10,10" />
+        <ListView x:Name="CurrentlySelected" ItemsSource="{Binding CurrentlySelectedMenuItems, Mode=TwoWay}"  Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Margin="10,10,10,10"/>
 
-        <TextBlock FontSize="25" Foreground="White" Grid.Row="1" Grid.Column="1" TextAlignment="Left">Special Requests:</TextBlock>
-        <TextBlock FontSize="25" Foreground="White" Grid.Row="1" Grid.Column="2" TextAlignment="Left">Order Items:</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Left">Special Requests:</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="2" TextAlignment="Left">Order Items:</TextBlock>
 
-        <Button Content="Add To Order" Click="Button_Click" Grid.Row="4" Grid.Column="0"/>
-        <Button Content="Submit Order" Click="Button_Click_1" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" />
+        <Button Content="Add To Order" Click="AddToOrder" Grid.Row="4" Grid.Column="0"/>
+        <Button Content="Submit Order" Click="SubmitOrder" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" />
 
     </Grid>
 </Page>

@@ -5,17 +5,12 @@
     xmlns:local="using:RestaurantManager.UniversalWindows"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dm="using:RestaurantManager.Models"
     mc:Ignorable="d">
 
-    <Page.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="35" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-        </Style>
-    </Page.Resources>
+    <Page.DataContext>
+        <dm:DataManager />
+    </Page.DataContext>
 
     <Page.TopAppBar>
         <AppBar>
@@ -24,6 +19,7 @@
     </Page.TopAppBar>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+       
 
         <Grid.RowDefinitions>
             <RowDefinition Height=".9*" />
@@ -34,7 +30,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <GridView Grid.Row="0">
+        <GridView Grid.Row="0" ItemsSource="{Binding OrderItems}" >
         </GridView>
 
         <Button Content="Clear All Orders" Click="Button_Click" Grid.Row="1" Grid.ColumnSpan="1" />
